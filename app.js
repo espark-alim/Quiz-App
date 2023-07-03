@@ -40,7 +40,7 @@ var questions = [
     option: ["read only memory", "hyper text markup language", "html", "html"],
     correctAns: "read only memory",
   },
-  
+
 ];
 
 var display = document.getElementById("display");
@@ -57,7 +57,7 @@ function render() {
   current.innerHTML = indexValue + 1;
   total.innerHTML = questions.length;
   option.innerHTML = "";
-   
+
   for (let i = 0; i < obj.option.length; i++) {
     // console.log(obj.option[i]);
     option.innerHTML += `<input type="radio" name = "value" id = "input" class="mx-3 my-3" onclick="passData('${obj.correctAns}', '${obj.option[i]}')" >${obj.option[i]} </br>`;
@@ -68,24 +68,26 @@ render();
 function passData(a, b) {
   if (a == b) {
     marks++;
-    // console.log(marks);
+  }
 }
-}
-document.getElementById("next").addEventListener("click",next)
-// document.getElementById("input").addEventListener("change", chk);
+document.getElementById("next").addEventListener("click", next)
+document.getElementById("submit").addEventListener("click", submit)
 
-function chk(){
-   console.log("onchange")
+
+function submit() {
+  window.location.assign("./result/index.html")
 }
 
 function next() {
   indexValue++;
   render();
-  if (total.innerHTML == 5) {
-    obtained.innerHTML = +marks
+  if (indexValue == 4) {
+    document.getElementById("submit").style.display = "inline-block";
+    document.getElementById("next").style.display = "none";
+    // 
     console.log(marks);
   }
-
 }
+console.log(obtained);
 
-console.log(id)
+export default marks;
