@@ -75,19 +75,25 @@ document.getElementById("submit").addEventListener("click", submit)
 
 
 function submit() {
-  window.location.assign("./result/index.html")
+  document.getElementById("result").style.display = "block"
+  document.getElementById("test").style.display = "none"
+  
+  var obtained = document.getElementById("obtained");
+  obtained.innerHTML = `Obtained Marks : ${marks}`;
+  
 }
-
 function next() {
   indexValue++;
   render();
   if (indexValue == 4) {
     document.getElementById("submit").style.display = "inline-block";
     document.getElementById("next").style.display = "none";
-    // 
     console.log(marks);
   }
 }
-console.log(obtained);
 
-export default marks;
+function back() {
+  document.getElementById("result").style.display = "none"
+  document.getElementById("test").style.display = "block"
+}
+
